@@ -1,3 +1,3 @@
 #!/bin/sh
 
-certbot renew
+certbot renew --noninteractive
