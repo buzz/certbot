@@ -20,4 +20,4 @@ for DOMAIN in "${ADDR[@]}"; do
 done
 
 # keep running!
-cat
+crond -f -d 8
