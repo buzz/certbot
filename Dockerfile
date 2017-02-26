@@ -6,7 +6,7 @@ RUN set -xe && \
     apk update && \
     apk upgrade && \
     chmod +x /entrypoint.sh && \
-    apk add certbot && \
+    apk add bash certbot && \
     rm -rf /var/cache/apk/*
 
 ENV DOMAINS example.com
