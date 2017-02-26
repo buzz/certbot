@@ -19,5 +19,5 @@ for DOMAIN in "${ADDR[@]}"; do
     fi
 done
 
-# start cron
-crond -f -d 8
+# keep running!
+cat

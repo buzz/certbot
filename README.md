@@ -6,7 +6,10 @@ certificates.
 
 * Is based on [Alpine Linux](https://alpinelinux.org).
 * Uses [Certbot](https://github.com/certbot/certbot).
-* Runs a daily cronjob for renewing certificates.
+
+To trigger certificate renewal run
+`docker exec certbot certbot renew --noninteractive` using cron, systemd timer
+or similar.
 
 Usage
 -----
