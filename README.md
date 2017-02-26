@@ -7,9 +7,8 @@ certificates.
 * Is based on [Alpine Linux](https://alpinelinux.org).
 * Uses [Certbot](https://github.com/certbot/certbot).
 
-To trigger certificate renewal run
-`docker exec certbot certbot renew --noninteractive` using cron, systemd timer
-or similar.
+To trigger certificate renewal run `docker-compose exec certbot certbot renew -q`
+using cron, systemd timer or similar.
 
 Usage
 -----
