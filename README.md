@@ -28,7 +28,7 @@ services:
     - ./volumes/www/acme-challenges:/var/www/acme-challenges
     - ./volumes/etc/letsencrypt:/etc/letsencrypt
     environment:
-    - DOMAINS="example1.com:example2.org"
+    - DOMAINS=example1.com:example2.org
   nginx:
     container_name: nginx
     image: nginx:alpine
