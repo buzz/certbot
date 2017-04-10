@@ -9,6 +9,13 @@ RUN set -xe && \
     apk add bash certbot && \
     rm -rf /var/cache/apk/*
 
+COPY renew.sh /etc/periodic/daily/renew.sh
+
+# daily check
+RUN set -xe && \
+    chmod +x /etc/periodic/daily/renew.sh && \
+    echo "0 2 * * * run-parts /etc/periodic/daily" > /etc/crontabs/root
+
 ENV DOMAINS example.com
 
 VOLUME "/var/www/acme-challenges"
