@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe
+set -e
 
 # init certbot
 IFS=':' read -ra ADDR <<< "$DOMAINS"
@@ -20,6 +20,6 @@ for DOMAIN in "${ADDR[@]}"; do
 done
 
 # keep running!
-while true;
-    do sleep 10000;
+while true; do
+    sleep 10000
 done
