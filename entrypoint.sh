@@ -20,4 +20,6 @@ for DOMAIN in "${ADDR[@]}"; do
 done
 
 # keep running!
-crond -f -d 8
+while true;
+    do sleep 10000;
+done

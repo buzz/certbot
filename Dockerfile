@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -10,11 +10,6 @@ RUN set -xe && \
     rm -rf /var/cache/apk/*
 
 COPY renew.sh /etc/periodic/daily/renew.sh
-
-# daily check
-RUN set -xe && \
-    chmod +x /etc/periodic/daily/renew.sh && \
-    echo "0 2 * * * run-parts /etc/periodic/daily" > /etc/crontabs/root
 
 ENV DOMAINS example.com
 
