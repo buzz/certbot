@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -8,8 +8,6 @@ RUN set -xe && \
     chmod +x /entrypoint.sh && \
     apk add bash certbot && \
     rm -rf /var/cache/apk/*
-
-COPY renew.sh /etc/periodic/daily/renew.sh
 
 ENV DOMAINS example.com
 

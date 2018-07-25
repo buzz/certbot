@@ -15,11 +15,13 @@ for DOMAIN in "${ADDR[@]}"; do
             --email "certs@$DOMAIN" \
             --webroot \
             -w /var/www/acme-challenges \
+            -n \
             -d $DOMAIN
     fi
 done
 
-# keep running!
+# renew once a day
 while true; do
-    sleep 10000
+    sleep 86400
+    certbot renew -q -n
 done
