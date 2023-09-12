@@ -32,7 +32,7 @@ services:
     - ./volumes/www/acme-challenges:/var/www/acme-challenges
     - ./volumes/etc/letsencrypt:/etc/letsencrypt
     environment:
-    - DOMAINS=example1.com:example2.org
+    - DOMAINS
   nginx:
     container_name: nginx
     image: nginx:alpine
@@ -44,4 +44,14 @@ services:
     - ./volumes/www:/var/www
     - ./volumes/etc/nginx:/etc/nginx:ro
     - ./volumes/etc/letsencrypt:/etc/letsencrypt:ro
+```
+
+and an `.env` file:
+
+```
+DOMAINS="
+  example.com
+  www.example.com
+  foo.example.com
+"
 ```
