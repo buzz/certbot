@@ -2,6 +2,8 @@
 
 set -e
 
+MAX_LOG_BACKUPS=10
+
 # create certificate for domain if it doesn't exist
 IFS=$'\n'
 for domain in $DOMAINS; do
@@ -14,8 +16,9 @@ for domain in $DOMAINS; do
             --rsa-key-size 4096 \
             --email "certs@$domain" \
             --webroot \
-            -w /var/www/acme-challenges \
-            -n \
+            --webroot-path /var/www/acme-challenges \
+            --non-interactive \
+            --max-log-backups $MAX_LOG_BACKUPS \
             -d $domain
     fi
 done
@@ -23,5 +26,5 @@ done
 # renew once a day
 while true; do
     sleep 86400
-    certbot renew -q -n
+    certbot renew --max-log-backups $MAX_LOG_BACKUPS --quiet --non-interactive
 done
